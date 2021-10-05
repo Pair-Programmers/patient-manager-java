@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="470.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="patientmanager.InjectionsController">
+   <children>
+      <Pane fx:id="addEditorPane" layoutY="41.0" prefHeight="429.0" prefWidth="675.0">
+         <children>
+            <Label text="Add Editor">
+               <padding>
+                  <Insets left="250.0" top="30.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <GridPane layoutX="14.0" prefHeight="368.0" prefWidth="675.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="202.0" minHeight="10.0" prefHeight="157.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="176.0" minHeight="10.0" prefHeight="119.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Name" />
+                        <TextField fx:id="nameTextField" prefHeight="25.0" prefWidth="172.0">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label text="Price" />
+                        <TextField fx:id="priceTextField" prefHeight="25.0" prefWidth="174.0">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#saveButtonActionListner" prefHeight="28.0" prefWidth="79.0" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="label" textFill="#31a452" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+      <Pane fx:id="listEditorPane" layoutY="48.0" prefHeight="422.0" prefWidth="675.0" visible="false">
+         <children>
+            <Label layoutX="291.0" layoutY="23.0" text="Update Injcetion Price">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="58.0" layoutY="81.0" text="Injections" />
+            <Label layoutX="55.0" layoutY="190.0" text="New Price" />
+            <ComboBox fx:id="injectionsComboBox" layoutX="172.0" layoutY="77.0" onAction="#injectionComboBoxActionListner" prefHeight="25.0" prefWidth="192.0" promptText="Select" />
+            <TextField fx:id="newPriceTextField" layoutX="169.0" layoutY="186.0" />
+            <Button layoutX="312.0" layoutY="250.0" mnemonicParsing="false" onAction="#updateInjectionActionListner" prefHeight="25.0" prefWidth="68.0" text="Update" />
+            <Label layoutX="58.0" layoutY="137.0" text="Old Price" />
+            <Label fx:id="oldPriceLable" layoutX="172.0" layoutY="137.0" text="------" />
+            <Label fx:id="label2" layoutX="411.0" layoutY="81.0" textFill="#31a452">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ButtonBar prefHeight="40.0" prefWidth="437.0">
+        <buttons>
+          <Button mnemonicParsing="false" onAction="#panalAddButtonActionListner" text="Add  " />
+            <Button mnemonicParsing="false" onAction="#panalUpdateButtonActionListner" text="Update" />
+        </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>

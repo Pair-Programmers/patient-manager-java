@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="605.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="patientmanager.DoctorOTAOTPController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="64.0" prefWidth="850.0">
+         <children>
+            <ButtonBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="48.0" prefWidth="308.0">
+              <buttons>
+                <Button mnemonicParsing="false" onAction="#doctorActionListner" prefHeight="40.0" prefWidth="100.0" text="Doctor">
+                     <font>
+                        <Font name="System Bold Italic" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#OTAActionListner" prefHeight="40.0" prefWidth="100.0" text="OTA">
+                     <font>
+                        <Font name="System Bold Italic" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#OTPActionListner" prefHeight="40.0" prefWidth="100.0" text="OTP">
+                     <font>
+                        <Font name="System Bold Italic" size="17.0" />
+                     </font>
+                  </Button>
+              </buttons>
+            </ButtonBar>
+         </children>
+      </HBox>
+      <Pane fx:id="doctorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="665.0" prefWidth="768.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <VBox prefHeight="535.0" prefWidth="850.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="768.0">
+                     <children>
+                        <Label prefHeight="27.0" prefWidth="165.0" text="--&gt; Doctor Menu" textFill="#3339cc">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="495.0" prefWidth="768.0">
+                     <children>
+                        <GridPane prefHeight="495.0" prefWidth="849.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="NEVER" maxWidth="309.0" minWidth="50.0" prefWidth="290.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="368.0" minWidth="10.0" prefWidth="289.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="271.0" minWidth="10.0" prefWidth="270.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="219.0" minHeight="10.0" prefHeight="171.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="199.0" minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="233.0" minHeight="10.0" prefHeight="233.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <HBox prefHeight="70.0" prefWidth="256.0" />
+                                    <HBox prefHeight="50.0" prefWidth="256.0">
+                                       <children>
+                                          <Label text="Name">
+                                             <HBox.margin>
+                                                <Insets left="30.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="nameAddDoctorTextField" prefHeight="25.0" prefWidth="180.0">
+                                             <HBox.margin>
+                                                <Insets left="17.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="50.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Phone">
+                                             <HBox.margin>
+                                                <Insets left="30.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="phoneAddDoctorTextField" onKeyReleased="#phoneAddDoctorOnKeyReleased" prefHeight="25.0" prefWidth="180.0">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="errorAddDoctorLabel" text="Label" textFill="#e41313">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="30.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="messageAddDoctorLabel" text="Label" textFill="#1fa424">
+                                       <VBox.margin>
+                                          <Insets left="30.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="297.0">
+                                       <children>
+                                          <ComboBox fx:id="doctorsUpdateComboBox" onAction="#doctorsUpdateDoctorComboBoxActionListner" prefWidth="150.0" promptText="Select Doctor">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="50.0" prefWidth="297.0">
+                                       <children>
+                                          <Label text="Name" />
+                                          <TextField fx:id="nameUpdateDoctorTextField" prefWidth="180.0">
+                                             <HBox.margin>
+                                                <Insets left="17.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="50.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Phone" />
+                                          <TextField fx:id="phoneUpdateDoctorTextField" onKeyReleased="#phoneUpdateDoctorOnKeyReleased" prefWidth="180.0">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="errorUpdateDoctorLabel" text="Label" textFill="#e41313">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="messageUpdateDoctorLabel" text="Label" textFill="#1fa424">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+                                 <children>
+                                    <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="200.0">
+                                       <children>
+                                          <ComboBox fx:id="doctorsDeleteComboBox" onAction="#doctorsDeleteDoctorComboBoxActionListner" prefWidth="150.0" promptText="Select Dooctor">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="messageDeleteDoctorLabel" text="Label" textFill="#1fa424">
+                                       <VBox.margin>
+                                          <Insets left="70.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <Button mnemonicParsing="false" onAction="#addDoctorActionListner" prefHeight="30.0" prefWidth="80.0" text="Add" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="180.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#updateDoctorActionListner" prefHeight="30.0" prefWidth="80.0" text="Update" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="150.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#deleteDoctorActionListner" prefHeight="30.0" prefWidth="80.0" text="Delete" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="140.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane fx:id="OTAPAne" layoutY="69.0" prefHeight="466.0" prefWidth="850.0" visible="false">
+         <children>
+            <VBox prefHeight="535.0" prefWidth="850.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="768.0">
+                     <children>
+                        <Label prefHeight="27.0" prefWidth="148.0" text="--&gt; OTA Menu" textFill="#3339cc">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="495.0" prefWidth="768.0">
+                     <children>
+                        <GridPane prefHeight="495.0" prefWidth="849.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" maxWidth="309.0" minWidth="50.0" prefWidth="290.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="368.0" minWidth="10.0" prefWidth="289.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="271.0" minWidth="10.0" prefWidth="270.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="219.0" minHeight="10.0" prefHeight="171.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="199.0" minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="233.0" minHeight="10.0" prefHeight="233.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <HBox prefHeight="70.0" prefWidth="256.0" />
+                                    <HBox prefHeight="50.0" prefWidth="256.0">
+                                       <children>
+                                          <Label text="Name">
+                                             <HBox.margin>
+                                                <Insets left="30.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="nameAddOTATextField" prefHeight="25.0" prefWidth="180.0">
+                                             <HBox.margin>
+                                                <Insets left="17.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="56.0" prefWidth="290.0">
+                                       <children>
+                                          <Label text="Phone">
+                                             <HBox.margin>
+                                                <Insets left="30.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="phoneAddOTATextField" onKeyReleased="#phoneAddOTAOnKeyReleased" prefHeight="25.0" prefWidth="180.0">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="errorAddOTALabel" text="Label" textFill="#e41313">
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="messageAddOTALabel" text="Label" textFill="#1fa424">
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="297.0">
+                                       <children>
+                                          <ComboBox fx:id="OTAUpdateComboBox" onAction="#OTAUpdateComboBoxActionListner" prefWidth="150.0" promptText="Select OTA">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="50.0" prefWidth="297.0">
+                                       <children>
+                                          <Label text="Name" />
+                                          <TextField fx:id="nameUpdateOTATextField" prefWidth="180.0">
+                                             <HBox.margin>
+                                                <Insets left="17.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="50.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Phone" />
+                                          <TextField fx:id="phoneUpdateOTATextField" onKeyReleased="#phoneUpdateOTAOnKeyReleased" prefWidth="180.0">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="errorUpdateOTALabel" text="Label" textFill="#e41313">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="messageUpdateOTALabel" text="Label" textFill="#1fa424">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+                                 <children>
+                                    <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="200.0">
+                                       <children>
+                                          <ComboBox fx:id="OTADeleteComboBox" onAction="#OTADeleteComboBoxActionListner" prefWidth="150.0" promptText="Select OTA">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="messageDeleteOTALabel" text="Label" textFill="#1fa424">
+                                       <padding>
+                                          <Insets left="70.0" />
+                                       </padding>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <Button mnemonicParsing="false" onAction="#addOTAActionListner" prefHeight="30.0" prefWidth="80.0" text="Add" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="180.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#updateOTAActionListner" prefHeight="30.0" prefWidth="80.0" text="Update" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="150.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#deleteOTAActionListner" prefHeight="30.0" prefWidth="80.0" text="Delete" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="140.0" />
+                                 </GridPane.margin>
+                              </Button>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane fx:id="OTPPane" layoutY="69.0" prefHeight="466.0" prefWidth="850.0" visible="false">
+         <children>
+            <VBox prefHeight="535.0" prefWidth="850.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="768.0">
+                     <children>
+                        <Label prefHeight="27.0" prefWidth="148.0" text="--&gt; OTP Menu" textFill="#3339cc">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="495.0" prefWidth="768.0">
+                     <children>
+                        <GridPane prefHeight="495.0" prefWidth="849.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" maxWidth="309.0" minWidth="50.0" prefWidth="290.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="368.0" minWidth="10.0" prefWidth="289.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="271.0" minWidth="10.0" prefWidth="270.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="219.0" minHeight="10.0" prefHeight="171.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="199.0" minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="233.0" minHeight="10.0" prefHeight="233.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <HBox prefHeight="70.0" prefWidth="256.0" />
+                                    <HBox prefHeight="50.0" prefWidth="256.0">
+                                       <children>
+                                          <Label text="Name">
+                                             <HBox.margin>
+                                                <Insets left="30.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="nameAddOTPTextField" prefHeight="25.0" prefWidth="180.0">
+                                             <HBox.margin>
+                                                <Insets left="17.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="50.0" prefWidth="290.0">
+                                       <children>
+                                          <Label text="Phone">
+                                             <HBox.margin>
+                                                <Insets left="30.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="phoneAddOTPTextField" onKeyReleased="#phoneAddOTPOnKeyReleased" prefHeight="25.0" prefWidth="180.0">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="errorAddOTPLabel" text="Label" textFill="#e41313">
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="messageAddOTPLabel" text="Label" textFill="#1fa424">
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="297.0">
+                                       <children>
+                                          <ComboBox fx:id="OTPUpdateComboBox" onAction="#OTPUpdateComboBoxActionListner" prefWidth="150.0" promptText="Select OTP">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="50.0" prefWidth="297.0">
+                                       <children>
+                                          <Label text="Name" />
+                                          <TextField fx:id="nameUpdateOTPTextField" prefWidth="180.0">
+                                             <HBox.margin>
+                                                <Insets left="17.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="50.0" prefWidth="297.0">
+                                       <children>
+                                          <Label text="Phone" />
+                                          <TextField fx:id="phoneUpdateOTPTextField" onKeyReleased="#phoneUpdateOTPOnKeyReleased" prefWidth="180.0">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="errorUpdateOTPLabel" text="Label" textFill="#e41313">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="messageUpdateOTPLabel" text="Label" textFill="#1fa424">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+                                 <children>
+                                    <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="200.0">
+                                       <children>
+                                          <ComboBox fx:id="OTPDeleteComboBox" onAction="#OTPUpdateComboBoxActionListner" prefWidth="150.0" promptText="Select OTP">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="messageDeleteOTPLabel" text="Label" textFill="#1fa424">
+                                       <VBox.margin>
+                                          <Insets left="70.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <Button mnemonicParsing="false" onAction="#addOTPActionListner" prefHeight="30.0" prefWidth="80.0" text="Add" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="180.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#updateOTPActionListner" prefHeight="30.0" prefWidth="80.0" text="Update" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="150.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#deleteOTPActionListner" prefHeight="30.0" prefWidth="80.0" text="Delete" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="140.0" />
+                                 </GridPane.margin>
+                              </Button>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

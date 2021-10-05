@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="640.0" prefWidth="1327.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="patientmanager.HomeController">
+   <children>
+      <Pane fx:id="welcomePane" prefHeight="625.0" prefWidth="1304.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="557.0" prefWidth="1211.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="43.0" prefWidth="1100.0">
+                     <children>
+                        <Label contentDisplay="CENTER" prefHeight="40.0" prefWidth="244.0" text="Welcome to Patient Manger">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="1100.0">
+                     <children>
+                        <Label text="Muhammadi Medical Trust" textFill="#1d92b5">
+                           <font>
+                              <Font name="Jokerman" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#adminLoginPane1ButtonActionListner" prefHeight="150.0" prefWidth="150.0">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/admin.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets right="150.0" />
+                           </HBox.margin>
+                        </Button>
+                        <ImageView fitHeight="253.0" fitWidth="302.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/patientManagerLogo.png" />
+                           </image>
+                        </ImageView>
+                        <Button mnemonicParsing="false" onAction="#editorLoginPane1ButtonActionListner" prefHeight="150.0" prefWidth="150.0">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/editor.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="150.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="1075.0">
+                     <children>
+                        <Label text="Password">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <PasswordField fx:id="passwordField" onAction="#passwordFieldActionListner">
+                           <HBox.margin>
+                              <Insets left="20.0" top="2.0" />
+                           </HBox.margin>
+                        </PasswordField>
+                        <Button mnemonicParsing="false" onAction="#logInButtonActionListner" prefHeight="35.0" prefWidth="81.0" text="Log In">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin></Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane fx:id="homePane" prefHeight="600.0" prefWidth="1327.0" visible="false">
+         <children>
+            <VBox prefHeight="600.0" prefWidth="1317.0">
+               <children>
+                  <MenuBar>
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                          <MenuItem fx:id="exportDataToExcelMenuItem" mnemonicParsing="false" onAction="#exportDataToExcelMenuItemActionListner" text="Export Data to Excel" />
+                              <MenuItem fx:id="addEditorMenuItem" mnemonicParsing="false" onAction="#addEditorMenuItemActionListner" text="Editors" />
+                              <MenuItem fx:id="injectionsMenuItem" mnemonicParsing="false" onAction="#injectionMenuItemActionListner" text="Injections" />
+                              <MenuItem fx:id="backupMenuItem" mnemonicParsing="false" onAction="#backupMenuItemActionListner" text="Save Backup" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Edit">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Delete" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="About" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <HBox prefHeight="575.0" prefWidth="1195.0">
+                     <children>
+                        <VBox prefHeight="517.0" prefWidth="202.0">
+                           <children>
+                              <Label prefHeight="20.0" prefWidth="97.0" text="Dashboard">
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="userLoginLabel" prefHeight="27.0" prefWidth="185.0" text="-------------------">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="addPatientButton" mnemonicParsing="false" onAction="#addPatientButtonActionListner" prefHeight="35.0" prefWidth="200.0" text="Add Patient">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="56.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="updatePatientButton" mnemonicParsing="false" onAction="#updatePatientButtonActionListner" prefHeight="35.0" prefWidth="200.0" text="View or Update">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#openSlectedPatientButtonActionListner" prefHeight="35.0" prefWidth="200.0" text="Open Selected Patient">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button layoutX="10.0" layoutY="165.0" mnemonicParsing="false" onAction="#rereshTableButtonActionListner" prefHeight="35.0" prefWidth="200.0" text="Refresh Table &amp; Data">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#doctorAndOTAButtonActionListner" prefHeight="35.0" prefWidth="200.0" text="Doctors/OTA/OTP">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="messageButton" disable="true" mnemonicParsing="false" onAction="#messageButtonActionListner" prefHeight="35.0" prefWidth="200.0" text="Deliver Messages" textFill="#05a625">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="moveToPatientListButton" disable="true" layoutX="25.0" layoutY="341.0" mnemonicParsing="false" onAction="#moveToPatientListButtonActionListner" prefHeight="35.0" prefWidth="200.0" text="Move To Patient List" textFill="#1d92b5">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="moveToOnSurgeryButton" layoutX="25.0" layoutY="461.0" mnemonicParsing="false" onAction="#moveToOnSurgeryButtonActionListner" prefHeight="35.0" prefWidth="200.0" text="Move To On Surgery" textFill="#1d92b5">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="moveToOnPosponeButton" layoutX="25.0" layoutY="401.0" mnemonicParsing="false" onAction="#moveToPosponeButtonActionListner" prefHeight="35.0" prefWidth="200.0" text="Move To Pending" textFill="#1d92b5">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="moveToCompletedButton" layoutX="25.0" layoutY="501.0" mnemonicParsing="false" onAction="#moveToCompletedButtonActionListner" prefHeight="35.0" prefWidth="200.0" text="Move To Completed" textFill="#1d92b5">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="logOutButton" layoutX="10.0" layoutY="325.0" mnemonicParsing="false" onAction="#logOutButtonActionListner" prefHeight="35.0" prefWidth="200.0" text="Log Out">
+                                 <font>
+                                    <Font name="System Bold Italic" size="13.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="575.0" prefWidth="1103.0">
+                           <children>
+                              <HBox prefHeight="34.0" prefWidth="942.0">
+                                 <children>
+                                    <Label fx:id="navigationalLabel" prefHeight="30.0" prefWidth="300.0" text="Patient Report" textFill="#31b552">
+                                       <font>
+                                          <Font name="Jokerman" size="18.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="15.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label text="Date :">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="255.0" top="16.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="dateLabel" text="28-10-2019">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="16.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Button fx:id="printButton" disable="true" mnemonicParsing="false" onAction="#printButtonActionListner" prefHeight="44.0" prefWidth="50.0">
+                                       <HBox.margin>
+                                          <Insets left="250.0" top="5.0" />
+                                       </HBox.margin>
+                                       <graphic>
+                                          <ImageView fx:id="printinIconimageView" fitHeight="20.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/download.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="34.0" prefWidth="897.0">
+                                 <children>
+                                    <Label prefHeight="17.0" prefWidth="90.0" text="No. of Patients:">
+                                       <HBox.margin>
+                                          <Insets left="15.0" top="8.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="noOfPatientLabel" prefHeight="17.0" prefWidth="37.0" text="150">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets top="8.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label prefHeight="17.0" prefWidth="36.0" text="File #">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="8.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="searchTextField" onKeyReleased="#searchTextFieldOnKeyReleased" prefHeight="25.0" prefWidth="180.0">
+                                       <HBox.margin>
+                                          <Insets left="20.0" top="5.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchButtonActionListner" prefHeight="30.0" prefWidth="53.0" text="Mob #">
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#searchByFileNumberButtonActionListner" prefHeight="33.0" prefWidth="46.0" text="by F#">
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button layoutX="491.0" layoutY="10.0" mnemonicParsing="false" onAction="#searchByIDButtonActionListner" prefHeight="33.0" prefWidth="46.0" text="by ID">
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#patientListButtonActionListner" prefHeight="33.0" prefWidth="95.0" text="Patient List" textFill="#1d92b5">
+                                       <HBox.margin>
+                                          <Insets left="80.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#postButtonActionListner" prefHeight="30.0" prefWidth="79.0" text="Pending" textFill="#1d92b5">
+                                       <HBox.margin>
+                                          <Insets left="15.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onSurgeryButtonActionListner" prefHeight="30.0" prefWidth="96.0" text="On Surgery" textFill="#1d92b5">
+                                       <HBox.margin>
+                                          <Insets left="15.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#completedButtonActionListner" prefHeight="33.0" prefWidth="106.0" text="Completed" textFill="#1d92b5">
+                                       <HBox.margin>
+                                          <Insets left="15.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="942.0">
+                                 <children>
+                                    <Label fx:id="sortByLabel" text="Sort by : ">
+                                       <HBox.margin>
+                                          <Insets left="15.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <ComboBox fx:id="doctorsComboBox" onAction="#doctorsComboBoxActionListner2" prefHeight="25.0" prefWidth="174.0" promptText="Select Doctor">
+                                       <HBox.margin>
+                                          <Insets left="25.0" />
+                                       </HBox.margin>
+                                    </ComboBox>
+                                    <HBox fx:id="completedDateHBox" alignment="CENTER_RIGHT" prefHeight="55.0" prefWidth="768.0">
+                                       <children>
+                                          <Label text="From" />
+                                          <DatePicker fx:id="fromDatePicker" editable="false" showWeekNumbers="true">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </DatePicker>
+                                          <Label text="To">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <DatePicker fx:id="toDatePicker" editable="false" showWeekNumbers="true">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </DatePicker>
+                                          <Button fx:id="searchForDateButton" mnemonicParsing="false" onAction="#searchForDateButtonActionListner" text="Search">
+                                             <HBox.margin>
+                                                <Insets left="20.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children></HBox>
+                              <TableView fx:id="patientTableView" prefHeight="432.0" prefWidth="1080.0">
+                                <columns>
+                                  <TableColumn fx:id="noTableColumn" maxWidth="60.0" minWidth="50.0" prefWidth="-1.0" text="ID" />
+                                  <TableColumn fx:id="nameTableColumn" maxWidth="200.0" minWidth="150.0" prefWidth="-1.0" text="Name" />
+                                    <TableColumn fx:id="fileNumberTableColumn" maxWidth="60.0" minWidth="50.0" prefWidth="-1.0" text="File #" />
+                                    <TableColumn fx:id="phoneNumberTableColumn" maxWidth="100.0" minWidth="85.0" prefWidth="-1.0" text="Phone #" />
+                                    <TableColumn fx:id="cnicTableColumn" maxWidth="150.0" minWidth="110.0" prefWidth="-1.0" text="CNIC" />
+                                    <TableColumn fx:id="adressTableColumn" maxWidth="200.0" minWidth="150.0" prefWidth="-1.0" text="Adress" />
+                                    <TableColumn fx:id="raseed1TableColumn" maxWidth="70.0" minWidth="60.0" prefWidth="-1.0" text="Raseed 1" />
+                                    <TableColumn fx:id="recieptTableColumn" maxWidth="60.0" minWidth="40.0" prefWidth="-1.0" text="Price" />
+                                    <TableColumn fx:id="surgreyTableColumn" maxWidth="60.0" minWidth="45.0" prefWidth="-1.0" text="SRGRY" />
+                                    <TableColumn fx:id="dateTableColumn" maxWidth="80.0" minWidth="70.0" prefWidth="-1.0" text="Date" />
+                                    <TableColumn fx:id="surgenTableColumn" maxWidth="100.0" minWidth="49.0" prefWidth="49.0" text="Surgen" />
+                                    <TableColumn fx:id="userTableColumn" maxWidth="131.0" minWidth="76.0" prefWidth="76.0" text="User" />
+                                    <TableColumn fx:id="procedureTableColumn" prefWidth="137.0" text="Procedure" />
+                                </columns>
+                                 <VBox.margin>
+                                    <Insets left="15.0" top="10.0" />
+                                 </VBox.margin>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <SplitPane fx:id="messageConfirmVSplitPane" dividerPositions="0.33, 0.66" prefHeight="640.0" prefWidth="1147.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="638.0" prefWidth="447.0">
+               <children>
+                  <VBox layoutX="168.0" layoutY="58.0" prefHeight="638.0" prefWidth="375.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#cancelMessageScreenActionListner" prefHeight="25.0" prefWidth="59.0" text="Back">
+                           <VBox.margin>
+                              <Insets left="20.0" top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                        <HBox alignment="CENTER" prefHeight="72.0" prefWidth="378.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="50.0" prefWidth="378.0">
+                                 <children>
+                                    <Label text="List Message for Surgery Confirmation" textFill="#7b807c">
+                                       <font>
+                                          <Font name="System Bold Italic" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextArea editable="false" prefHeight="64.0" prefWidth="378.0" text="Aap _ _ _ _ _ bjay operationk liye de gai hidayat aur mukarara &#10;waqt par tashreef layein.&#10;" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="56.0" prefWidth="375.0">
+                           <children>
+                              <Label text="Doctor Name :">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Label>
+                              <Label fx:id="doctorNameLabel1">
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="69.0" prefWidth="375.0">
+                           <children>
+                              <Label text="Date">
+                                 <HBox.margin>
+                                    <Insets right="30.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <DatePicker fx:id="surgeryConfirmationDatePicker" editable="false" prefWidth="180.0" showWeekNumbers="true" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="62.0" prefWidth="375.0">
+                           <children>
+                              <Label text="Time">
+                                 <HBox.margin>
+                                    <Insets right="30.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ComboBox fx:id="timeComboBox" prefHeight="25.0" prefWidth="78.0" promptText="Hours" />
+                              <RadioButton mnemonicParsing="false" selected="true" text=" AM">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="AMPMToggleGroup" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" text=" PM" toggleGroup="$AMPMToggleGroup">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </RadioButton>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="63.0" prefWidth="375.0">
+                           <children>
+                              <Label text="OTA">
+                                 <HBox.margin>
+                                    <Insets right="30.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ComboBox fx:id="OTAComboBox" prefHeight="25.0" prefWidth="180.0" promptText="Select" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="61.0" prefWidth="375.0">
+                           <children>
+                              <Label text="OTP">
+                                 <HBox.margin>
+                                    <Insets right="30.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ComboBox fx:id="OTPComboBox" prefWidth="180.0" promptText="Select" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="49.0" prefWidth="375.0">
+                           <children>
+                              <Label text="Total Patient : ">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Label>
+                              <Label fx:id="totalPatientMessageLabel">
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#confirmGroupSurgeryButtonActionListner" prefHeight="32.0" prefWidth="78.0" text="Confirm" textFill="#3fbc31">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="638.0" prefWidth="119.0">
+               <children>
+                  <VBox layoutX="136.0" layoutY="113.0" prefHeight="638.0" prefWidth="372.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="Button" visible="false">
+                           <VBox.margin>
+                              <Insets left="20.0" top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="55.0" prefHeight="106.0" prefWidth="375.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="114.0" prefWidth="376.0">
+                                 <children>
+                                    <Label text="List Message for Surgery Completion" textFill="#7b807c">
+                                       <font>
+                                          <Font name="System Bold Italic" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextArea editable="false" prefHeight="84.0" prefWidth="376.0" text="Alhumdullilah, Aap ka operation kamiyab ho gaya ha, kal muanye &#10;k liye  mukarara wakt par File k hamrah lazmi tashreef &#10;layen aur hadayat k mutabiq adviyat / Qatroon ka istemal &#10;jari rakhain." />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="105.0" prefHeight="69.0" prefWidth="375.0">
+                           <children>
+                              <Label text="Doctor Name :">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Label>
+                              <Label fx:id="nameInMessageLabel3">
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="205.0" prefHeight="52.0" prefWidth="375.0">
+                           <children>
+                              <Label text="Total Patient : ">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Label>
+                              <Label fx:id="totalPatientMessageLabel3">
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="240.0" prefHeight="78.0" prefWidth="375.0">
+                           <children>
+                              <Label text="Doctor Time">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Label>
+                              <ComboBox fx:id="timeComboBox2" prefHeight="25.0" prefWidth="88.0" promptText="Hours">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </ComboBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="108.0" prefWidth="375.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#completedGroupSurgeryButtonActionListner" prefHeight="32.0" prefWidth="95.0" text="Completed" textFill="#3fbc31">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="638.0" prefWidth="524.0">
+               <children>
+                  <VBox prefHeight="638.0" prefWidth="386.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="Button" visible="false">
+                           <VBox.margin>
+                              <Insets left="20.0" top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                        <HBox alignment="CENTER" prefHeight="87.0" prefWidth="390.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="50.0" prefWidth="394.0">
+                                 <children>
+                                    <Label text="Single Message for Surgery Postpone/Cancel" textFill="#7b807c">
+                                       <font>
+                                          <Font name="System Bold Italic" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="Aap ka blood pressure / blood sugar control na honay ki wajah se &#10;aap ka operation multavi kar dia gaya ha, dobara tareekh k liye&#10;mukamal sehatyabi k bad rabta karain." />
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="2.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <Label text="ID  :  ">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Label>
+                              <Label fx:id="idInMessageLabel">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="105.0" prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Name  :  ">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Label>
+                              <Label fx:id="nameInMessageLabel">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Phone  :  ">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Label>
+                              <Label fx:id="phoneInMessageLabel">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="164.0" layoutY="44.0" mnemonicParsing="false" onAction="#posponeIndvidualSurgeryButtonActionListner" prefHeight="32.0" prefWidth="83.0" text="Postpone" textFill="#3fbc31">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#cancelIndvidualSurgeryButtonActionListner" prefHeight="32.0" prefWidth="78.0" text="Cancel" textFill="#3fbc31">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="73.0" prefWidth="390.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="50.0" prefWidth="389.0">
+                                 <children>
+                                    <Label text="List Message for Surgery Postpone" textFill="#7b807c">
+                                       <font>
+                                          <Font name="System Bold Italic" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="Aap ka operation naguzeer waja se filhal mulatvi kar dia gaya ha, &#10;Ainda ki tareekh se apko mutlah kar dia jae ga." />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Doctor Name :">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Label>
+                              <Label fx:id="doctorNameLabel2">
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="35.0" prefWidth="375.0">
+                           <children>
+                              <Label text="Total Patient : ">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Label>
+                              <Label fx:id="totalPatientMessageLabel2">
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#posponeGroupSurgeryButtonActionListner" prefHeight="32.0" prefWidth="86.0" text="Postpone" textFill="#3fbc31">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Pane fx:id="welcomePane2" prefHeight="625.0" prefWidth="1157.0" visible="false">
+         <children>
+            <VBox alignment="CENTER" prefHeight="606.0" prefWidth="1100.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="43.0" prefWidth="1100.0">
+                     <children>
+                        <Label contentDisplay="CENTER" prefHeight="40.0" prefWidth="239.0" text="Welcome to Patient Manger">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="1100.0">
+                     <children>
+                        <Label text="Muhammadi Medical Trust" textFill="#1d92b5">
+                           <font>
+                              <Font name="Jokerman" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#adminLoginPane2ButtonActionListner" prefHeight="150.0" prefWidth="150.0">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/admin.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets right="150.0" />
+                           </HBox.margin>
+                        </Button>
+                        <ImageView fitHeight="253.0" fitWidth="302.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/patientManagerLogo.png" />
+                           </image>
+                        </ImageView>
+                        <Button mnemonicParsing="false" onAction="#editorLoginPane2ButtonActionListner" prefHeight="150.0" prefWidth="150.0">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/editor.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="150.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="1075.0">
+                     <children>
+                        <Label text="Username">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="usernameTextField">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button mnemonicParsing="false" onAction="#logIn2ButtonActionListner" prefHeight="35.0" prefWidth="81.0" text="Log In">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="4.0" prefWidth="1100.0">
+                     <children>
+                        <Label text="Password" />
+                        <PasswordField fx:id="passwordField2" onAction="#passwordField2ActionListner">
+                           <HBox.margin>
+                              <Insets left="17.0" top="2.0" />
+                           </HBox.margin>
+                        </PasswordField>
+                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="81.0" text="Button" visible="false">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

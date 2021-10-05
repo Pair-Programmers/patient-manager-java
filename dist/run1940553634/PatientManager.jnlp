@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="PatientManager.jnlp">
+  <information>
+    <title>PatientManager</title>
+    <vendor>15009065376</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="PatientManager.jar" size="349785" download="eager" />
+    <jar href="lib\bridj-0.7.0.jar" size="935929" download="eager" />
+    <jar href="lib\commons-codec-1.13.jar" size="344339" download="eager" />
+    <jar href="lib\commons-collections4-4.4.jar" size="751914" download="eager" />
+    <jar href="lib\commons-compress-1.19.jar" size="615064" download="eager" />
+    <jar href="lib\commons-logging-1.2.jar" size="61829" download="eager" />
+    <jar href="lib\commons-math3-3.6.1.jar" size="2213560" download="eager" />
+    <jar href="lib\curvesapi-1.06.jar" size="111875" download="eager" />
+    <jar href="lib\fontbox-2.0.3.jar" size="1477680" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.48.jar" size="1006956" download="eager" />
+    <jar href="lib\ooxml-schemas-1.1.jar" size="14841622" download="eager" />
+    <jar href="lib\pdfbox-2.0.3.jar" size="2441253" download="eager" />
+    <jar href="lib\poi-4.1.1.jar" size="2827712" download="eager" />
+    <jar href="lib\poi-excelant-4.1.1.jar" size="31354" download="eager" />
+    <jar href="lib\poi-ooxml-4.1.1.jar" size="1859884" download="eager" />
+    <jar href="lib\poi-ooxml-schemas-4.1.1.jar" size="7884238" download="eager" />
+    <jar href="lib\poi-scratchpad-4.1.1.jar" size="1800622" download="eager" />
+    <jar href="lib\slf4j-api-1.7.2.jar" size="26083" download="eager" />
+    <jar href="lib\webcam-capture-0.3.12.jar" size="428314" download="eager" />
+    <jar href="lib\xmlbeans-3.1.0.jar" size="2579738" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="PatientManager" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="patientmanager.PatientManager"  name="PatientManager" />
+  <update check="always"/>
+</jnlp>
